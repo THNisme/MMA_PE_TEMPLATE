@@ -7,7 +7,7 @@ export const mockExpenses: Expense[] = [
         amount: 120,
         date: "2026-07-15",
         category: "Food",
-        isFavorite: false,
+        isFavorite: 0,
     },
     {
         id: "2",
@@ -15,7 +15,7 @@ export const mockExpenses: Expense[] = [
         amount: 50,
         date: "2026-07-16",
         category: "Drink",
-        isFavorite: true,
+        isFavorite: 0,
     },
     {
         id: "3",
@@ -23,6 +23,6 @@ export const mockExpenses: Expense[] = [
         amount: 300,
         date: "2026-07-17",
         category: "Shopping",
-        isFavorite: false,
+        isFavorite: 0,
     },
 ];

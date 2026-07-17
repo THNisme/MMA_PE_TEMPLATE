@@ -9,7 +9,7 @@ export interface Expense extends BaseModel {
 
     category: string;
 
-    isFavorite: boolean;
+    isFavorite: number;
 }
 
 /**
@@ -30,5 +30,5 @@ export const defaultExpense: ExpenseForm = {
 
     category: "",
 
-    isFavorite: false,
+    isFavorite: 0,
 };

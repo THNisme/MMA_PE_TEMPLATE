@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 
 import {
     View,
     FlatList,
     StyleSheet,
+    Alert,
 } from "react-native";
+
+import { useFocusEffect } from "@react-navigation/native";
 
 import ExpenseCard from "../components/ExpenseCard";
 
@@ -24,10 +27,49 @@ export default function HomeScreen() {
         setExpenses(data);
     }
     // Gọi hàm load dữ liệu lên
+    // useFocusEffect(
+    //     useCallback(() => {
+    //         loadExpenses();
+    //     }, [])
+    // );
+
     useEffect(() => {
         loadExpenses();
     }, []);
 
+    //Tạo alert
+    async function deleteHandle(expense: Expense) {
+        Alert.alert(
+            // Set title
+            "Delete Expense",
+            `Expense: ${expense.expenseName} ?`,
+            [   //Set nút
+                {
+                    text: "Cancel",
+                    style: "cancel",
+                },
+                {
+                    text: "Delete",
+                    style: "destructive",
+                    onPress: async () => {
+                        await repository.delete(expense.id);
+                        await loadExpenses();
+                        
+                        const data = await repository.getAll();
+                        console.log(data);
+                    }
+                }
+            ]
+        );
+    }
+
+    async function favoriteHandle(expense: Expense) {
+            await repository.update({...expense, isFavorite: 1});
+            await loadExpenses();
+
+            const data = await repository.getAll();
+            console.log(data);
+    }
 
     return(
         <View style={styles.container}>
@@ -37,6 +79,8 @@ export default function HomeScreen() {
                 renderItem={({item}) => (
                     <ExpenseCard
                         expense={item}
+                        onDelete={deleteHandle}
+                        onFavorite={favoriteHandle}
                     />
                 )}
             />

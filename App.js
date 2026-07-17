@@ -10,84 +10,92 @@ import ExpenseCard from "./src/components/ExpenseCard";
 
 //TEST SCREENS
 import HomeScreen from "./src/screens/HomeScreen";
+import AddExpenseScreen from "./src/screens/AddExpenseScreen";
+import DetailScreen from './src/screens/DetailScreen';
+import FavoriteScreen from './src/screens/FavoriteScreen';
+import SummaryScreen from './src/screens/SummaryScreen';
 
 
 export default function App() {
-//   async function runTest() {
+  async function runTest() {
 
-//       const repository = new ExpenseRepository();
+      const repository = new ExpenseRepository();
 
-//       console.log("========== START TEST ==========");
+    //   console.log("========== START TEST ==========");
 
-//       // Xóa toàn bộ dữ liệu cũ (nếu muốn)
-//       const oldData = await repository.getAll();
+    //   // Xóa toàn bộ dữ liệu cũ (nếu muốn)
+    //   const oldData = await repository.getAll();
 
-//       for (const item of oldData) {
-//           await repository.delete(item.id);
-//       }
+    //   for (const item of oldData) {
+    //       await repository.delete(item.id);
+    //   }
 
-//       console.log("Database cleaned.");
+    //   console.log("Database cleaned.");
 
-//       // CREATE
-//       for (const expense of mockExpenses) {
-//           await repository.create(expense);
-//       }
+    //   // CREATE
+    //   for (const expense of mockExpenses) {
+    //       await repository.create(expense);
+    //   }
 
-//       console.log("Create success.");
+    //   console.log("Create success.");
 
-//     //   // GET ALL
-//     //   const expenses = await repository.getAll();
+// //     //   // GET ALL
+      const expenses = await repository.getAll();
 
-//     //   console.log("All Expenses:", expenses);
+      console.log("All Expenses:", expenses);
 
-//     //   // GET BY ID
-//     //   const firstExpense = await repository.getById(expenses[0].id);
+// //     //   // GET BY ID
+// //     //   const firstExpense = await repository.getById(expenses[0].id);
 
-//     //   console.log("Get By Id:", firstExpense);
+// //     //   console.log("Get By Id:", firstExpense);
 
-//     //   // UPDATE
-//     //   if (firstExpense) {
+// //     //   // UPDATE
+// //     //   if (firstExpense) {
 
-//     //       await repository.update({
-//     //           ...firstExpense,
-//     //           amount: 50000,
-//     //       });
+// //     //       await repository.update({
+// //     //           ...firstExpense,
+// //     //           amount: 50000,
+// //     //       });
 
-//     //       console.log("Update success.");
+// //     //       console.log("Update success.");
 
-//     //   }
+// //     //   }
 
-//     //   console.log(
-//     //       "After Update:",
-//     //       await repository.getAll()
-//     //   );
+// //     //   console.log(
+// //     //       "After Update:",
+// //     //       await repository.getAll()
+// //     //   );
 
-//     //   // DELETE
-//     //   if (firstExpense) {
+// //     //   // DELETE
+// //     //   if (firstExpense) {
 
-//     //       await repository.delete(firstExpense.id);
+// //     //       await repository.delete(firstExpense.id);
 
-//     //       console.log("Delete success.");
+// //     //       console.log("Delete success.");
 
-//     //   }
+// //     //   }
 
-//     //   console.log(
-//     //       "After Delete:",
-//     //       await repository.getAll()
-//     //   );
+// //     //   console.log(
+// //     //       "After Delete:",
+// //     //       await repository.getAll()
+// //     //   );
 
-//     //   console.log("=========== END TEST ===========");
+// //     //   console.log("=========== END TEST ===========");
 
-//   }
+  }
 
-//   useEffect(() => {
+  useEffect(() => {
 
-//         runTest();
+        runTest();
 
-//     }, []);
+    }, []);
 
   return (
-        <HomeScreen/>
+        // <HomeScreen/>
+        // <AddExpenseScreen/>
+        // <DetailScreen/>
+        // <FavoriteScreen/>
+        <SummaryScreen/>
   );
 }
 
