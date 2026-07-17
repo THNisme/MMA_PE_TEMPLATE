@@ -1,48 +1,119 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useEffect } from "react";
+
+//TEST COMMON IMPORT
+import { storage } from "./src/storage";
 import { mockExpenses } from "./src/utils/mockExpense";
 
 //TEST ASYNC STORAGE  IMPORT
-// import AsyncStorage from "@react-native-async-storage/async-storage";
-// import { STORAGE_KEYS } from "./src/storage/asyncStorage/keys";
-// import { AsyncExpenseStorage } from "./src/storage/asyncStorage";
-// import { Expense } from "./src/models/index";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 //TEST SQLite  IMPORT
-import { SQLiteExpenseStorage } from "./src/storage/sqlite";
-import { Expense } from "./src/models/index";
+import { database } from "./src/storage/sqlite";
 
 
 export default function App() {
 // TEST AsyncStorage
-  // const storage = new AsyncExpenseStorage();
-
   // useEffect(() => {
-  //   async function test() {
-  //       // await AsyncStorage.removeItem(STORAGE_KEYS.EXPENSE); //CLEAR Trước khi Create
 
-  //       console.log("========== DELETE ==========");
-  //       Viết logic test vô đây
-  //   }
+  //     async function test() {
 
-  //   test();
+  //         // Reset AsyncStorage
+  //         await AsyncStorage.removeItem("expenses");
+
+  //         console.log("========== CREATE ==========");
+
+  //         await storage.create(mockExpenses[0]);
+  //         await storage.create(mockExpenses[1]);
+  //         await storage.create(mockExpenses[2]);
+
+  //         console.log(await storage.getAll());
+
+  //         console.log("========== GET BY ID ==========");
+
+  //         console.log(await storage.getById("2"));
+
+  //         console.log("========== UPDATE ==========");
+
+  //         const expense = await storage.getById("2");
+
+  //         if (!expense) {
+  //             console.log("Expense not found.");
+  //             return;
+  //         }
+
+  //         const updateExpense = {
+  //             ...expense,
+  //             expenseName: "Updated Coffee",
+  //             amount: 999,
+  //             isFavorite: true,
+  //         };
+
+  //         await storage.update(updateExpense);
+
+  //         console.log(await storage.getById("2"));
+
+  //         console.log("========== DELETE ==========");
+
+  //         await storage.delete("1");
+
+  //         console.log(await storage.getAll());
+
+  //     }
+
+  //     test();
+
   // }, []);
 
 // TEST SQLite
-  // const storage = new SQLiteExpenseStorage();
-
   // useEffect(() => {
+
   //   async function test() {
-  //       //CLEAR Trước khi Create
-  //       // database.runSync(`
-  //       //     DELETE FROM expenses;
-  //       // `);
+
+  //       database.runSync(`
+  //           DELETE FROM expenses;
+  //       `);
+
+  //       console.log("========== CREATE ==========");
+
+  //       await storage.create(mockExpenses[0]);
+  //       await storage.create(mockExpenses[1]);
+  //       await storage.create(mockExpenses[2]);
+
+  //       console.log(await storage.getAll());
+
+  //       console.log("========== GET BY ID ==========");
+
+  //       console.log(await storage.getById("2"));
+
+  //       console.log("========== UPDATE ==========");
+
+  //       const expense = await storage.getById("2");
+
+  //       if (!expense) return;
+
+  //       const updateExpense = {
+  //           ...expense,
+  //           expenseName: "Updated Coffee",
+  //           amount: 999,
+  //           isFavorite: true,
+  //       };
+
+  //       await storage.update(updateExpense);
+
+  //       console.log(await storage.getById("2"));
 
   //       console.log("========== DELETE ==========");
-  //       //Viết logic test vô đây
+
+  //       await storage.delete("1");
+
+  //       console.log(await storage.getAll());
+
   //   }
+
   //   test();
+
   // }, []);
 
   return (
