@@ -1,17 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-
-//TEST IMPORT
 import { useEffect } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { STORAGE_KEYS } from "./src/storage/asyncStorage/keys";
-import { AsyncExpenseStorage } from "./src/storage/asyncStorage";
 import { mockExpenses } from "./src/utils/mockExpense";
+
+//TEST ASYNC STORAGE  IMPORT
+// import AsyncStorage from "@react-native-async-storage/async-storage";
+// import { STORAGE_KEYS } from "./src/storage/asyncStorage/keys";
+// import { AsyncExpenseStorage } from "./src/storage/asyncStorage";
+// import { Expense } from "./src/models/index";
+
+//TEST SQLite  IMPORT
+import { SQLiteExpenseStorage } from "./src/storage/sqlite";
 import { Expense } from "./src/models/index";
 
 
 export default function App() {
-// TEST
+// TEST AsyncStorage
   // const storage = new AsyncExpenseStorage();
 
   // useEffect(() => {
@@ -22,6 +26,22 @@ export default function App() {
   //       Viết logic test vô đây
   //   }
 
+  //   test();
+  // }, []);
+
+// TEST SQLite
+  // const storage = new SQLiteExpenseStorage();
+
+  // useEffect(() => {
+  //   async function test() {
+  //       //CLEAR Trước khi Create
+  //       // database.runSync(`
+  //       //     DELETE FROM expenses;
+  //       // `);
+
+  //       console.log("========== DELETE ==========");
+  //       //Viết logic test vô đây
+  //   }
   //   test();
   // }, []);
 
