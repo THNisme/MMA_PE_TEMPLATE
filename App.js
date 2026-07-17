@@ -1,10 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useEffect } from "react";
 
 //TEST IMPORT
 import { mockExpenses } from "./src/utils/mockExpense";
 import { ExpenseRepository } from "./src/repository/ExpenseRepository";
+
+//TEST COMPONENTS
+import ExpenseCard from "./src/components/ExpenseCard";
+
 
 export default function App() {
 //   async function runTest() {
@@ -74,25 +77,25 @@ export default function App() {
 
 //   }
 
-  useEffect(() => {
+//   useEffect(() => {
 
-        runTest();
+//         runTest();
 
-    }, []);
+//     }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+        <ExpenseCard expense={mockExpenses[0]}/>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        marginVertical: 40,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+    },
+    
 });
