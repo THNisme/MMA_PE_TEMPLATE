@@ -26,16 +26,12 @@ export default function HomeScreen() {
         const data = await repository.getAll();
         setExpenses(data);
     }
-    // Gọi hàm load dữ liệu lên
-    // useFocusEffect(
-    //     useCallback(() => {
-    //         loadExpenses();
-    //     }, [])
-    // );
-
-    useEffect(() => {
-        loadExpenses();
-    }, []);
+    //Gọi hàm load dữ liệu lên
+    useFocusEffect(
+        useCallback(() => {
+            loadExpenses();
+        }, [])
+    );
 
     //Tạo alert
     async function deleteHandle(expense: Expense) {

@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import { useFocusEffect } from "@react-navigation/native";
+
 
 import {
     FlatList,
@@ -18,11 +20,12 @@ export default function FavoriteScreen() {
 
     const [expenses, setExpenses] = useState<Expense[]>([]);
 
-    useEffect(() => {
 
-        loadFavoriteExpenses();
-
-    }, []);
+    useFocusEffect(
+        useCallback(() => {
+            loadFavoriteExpenses();
+        }, [])
+    );
 
     async function loadFavoriteExpenses() {
 
