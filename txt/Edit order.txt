@@ -1,0 +1,12 @@
+1. Model
+2. Storage
+3. Repository
+4. Add
+5. Detail
+6. Card
+7. Home
+8. Favorite
+9. Summary
+10. Navigation
+11. UI đẹp
+12. Test

@@ -1,0 +1,42 @@
+﻿Checklist Đổi Đề (30 Giây Đọc Trước Khi Code)
+1. Đọc Model
+Xác định đối tượng cần đổi và sửa các file tương ứng.
+* Đổi đối tượng: Expense → Book, Movie, v.v.
+* File cần sửa: Thư mục models/ và file mockData.
+2. Chọn Storage
+Xác định loại lưu trữ đề bài yêu cầu. Chỉ sửa file storageFactory.ts.
+* AsyncStorage: Factory trả về AsyncStorage.
+* SQLite: Factory trả về SQLite.
+3. Sửa Storage
+Cập nhật thông tin lưu trữ dựa trên Model mới (CRUD giữ nguyên).
+* Tên bảng (đối với SQLite).
+* Tên key (đối với AsyncStorage).
+* Các trường (fields) cập nhật theo Model mới.
+4. Repository
+Đổi tên Generic tương ứng với Model mới.
+* Ví dụ: ExpenseRepository → MovieRepository.
+Các hàm CRUD gần như không đổi. Chỉ thêm Business Logic nếu đề yêu cầu:
+* Validation
+* Search
+* Sort
+* Filter
+* Favorite
+5. Test Repository
+Kiểm tra các chức năng cơ bản. CRUD phải chạy thành công rồi mới làm UI.
+* Create
+* GetAll
+* GetById
+* Update
+* Delete
+6. Thứ Tự Làm UI
+Thực hiện thiết kế giao diện tuần tự theo các bước sau:
+1. Card
+2. Home
+3. Form
+4. Detail
+5. Favorite
+6. Summary
+Công Thức Cần Nhớ
+Trình tự thực hiện chuẩn xác nhất:
+Model ➔ Storage ➔ Repository ➔ Test ➔ UI
+Lưu ý quan trọng: Không làm UI trước khi CRUD chạy thành công.

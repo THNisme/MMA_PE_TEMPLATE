@@ -1,0 +1,26 @@
+npx create-expo-app ten_du_an --template blank
+npm start
+npx expo start
+npx expo start -c (xóa cache và chạy)
+
+ASYNC STORAGE
+npm install @react-native-async-storage/async-storage (expected version ^2.2.0)
+npx expo install @react-native-async-storage/async-storage (expected version ^2.2.0)
+
+SQLITE
+npx expo install expo-sqlite
+
+DATE PICKER
+npx expo install @react-native-community/datetimepicker
+
+PICKER
+npx expo install @react-native-picker/picker
+
+PIE CHART
+npx expo install react-native-chart-kit react-native-svg
+
+CÀI NAVIGATION
+npx expo install @react-navigation/native
+npx expo install react-native-screens react-native-safe-area-context
+npm install @react-navigation/native-stack
+npm install @react-navigation/bottom-tabs
