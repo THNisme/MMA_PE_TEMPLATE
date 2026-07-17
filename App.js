@@ -8,6 +8,9 @@ import { ExpenseRepository } from "./src/repository/ExpenseRepository";
 //TEST COMPONENTS
 import ExpenseCard from "./src/components/ExpenseCard";
 
+//TEST SCREENS
+import HomeScreen from "./src/screens/HomeScreen";
+
 
 export default function App() {
 //   async function runTest() {
@@ -32,48 +35,48 @@ export default function App() {
 
 //       console.log("Create success.");
 
-//       // GET ALL
-//       const expenses = await repository.getAll();
+//     //   // GET ALL
+//     //   const expenses = await repository.getAll();
 
-//       console.log("All Expenses:", expenses);
+//     //   console.log("All Expenses:", expenses);
 
-//       // GET BY ID
-//       const firstExpense = await repository.getById(expenses[0].id);
+//     //   // GET BY ID
+//     //   const firstExpense = await repository.getById(expenses[0].id);
 
-//       console.log("Get By Id:", firstExpense);
+//     //   console.log("Get By Id:", firstExpense);
 
-//       // UPDATE
-//       if (firstExpense) {
+//     //   // UPDATE
+//     //   if (firstExpense) {
 
-//           await repository.update({
-//               ...firstExpense,
-//               amount: 50000,
-//           });
+//     //       await repository.update({
+//     //           ...firstExpense,
+//     //           amount: 50000,
+//     //       });
 
-//           console.log("Update success.");
+//     //       console.log("Update success.");
 
-//       }
+//     //   }
 
-//       console.log(
-//           "After Update:",
-//           await repository.getAll()
-//       );
+//     //   console.log(
+//     //       "After Update:",
+//     //       await repository.getAll()
+//     //   );
 
-//       // DELETE
-//       if (firstExpense) {
+//     //   // DELETE
+//     //   if (firstExpense) {
 
-//           await repository.delete(firstExpense.id);
+//     //       await repository.delete(firstExpense.id);
 
-//           console.log("Delete success.");
+//     //       console.log("Delete success.");
 
-//       }
+//     //   }
 
-//       console.log(
-//           "After Delete:",
-//           await repository.getAll()
-//       );
+//     //   console.log(
+//     //       "After Delete:",
+//     //       await repository.getAll()
+//     //   );
 
-//       console.log("=========== END TEST ===========");
+//     //   console.log("=========== END TEST ===========");
 
 //   }
 
@@ -84,18 +87,8 @@ export default function App() {
 //     }, []);
 
   return (
-    <View style={styles.container}>
-        <ExpenseCard expense={mockExpenses[0]}/>
-    </View>
+        <HomeScreen/>
   );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        marginVertical: 40,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-    },
-    
-});
+
