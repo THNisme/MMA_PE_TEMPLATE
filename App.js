@@ -2,119 +2,83 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useEffect } from "react";
 
-//TEST COMMON IMPORT
-import { storage } from "./src/storage";
+//TEST IMPORT
 import { mockExpenses } from "./src/utils/mockExpense";
-
-//TEST ASYNC STORAGE  IMPORT
-import AsyncStorage from "@react-native-async-storage/async-storage";
-
-//TEST SQLite  IMPORT
-import { database } from "./src/storage/sqlite";
-
+import { ExpenseRepository } from "./src/repository/ExpenseRepository";
 
 export default function App() {
-// TEST AsyncStorage
-  // useEffect(() => {
+//   async function runTest() {
 
-  //     async function test() {
+//       const repository = new ExpenseRepository();
 
-  //         // Reset AsyncStorage
-  //         await AsyncStorage.removeItem("expenses");
+//       console.log("========== START TEST ==========");
 
-  //         console.log("========== CREATE ==========");
+//       // Xóa toàn bộ dữ liệu cũ (nếu muốn)
+//       const oldData = await repository.getAll();
 
-  //         await storage.create(mockExpenses[0]);
-  //         await storage.create(mockExpenses[1]);
-  //         await storage.create(mockExpenses[2]);
+//       for (const item of oldData) {
+//           await repository.delete(item.id);
+//       }
 
-  //         console.log(await storage.getAll());
+//       console.log("Database cleaned.");
 
-  //         console.log("========== GET BY ID ==========");
+//       // CREATE
+//       for (const expense of mockExpenses) {
+//           await repository.create(expense);
+//       }
 
-  //         console.log(await storage.getById("2"));
+//       console.log("Create success.");
 
-  //         console.log("========== UPDATE ==========");
+//       // GET ALL
+//       const expenses = await repository.getAll();
 
-  //         const expense = await storage.getById("2");
+//       console.log("All Expenses:", expenses);
 
-  //         if (!expense) {
-  //             console.log("Expense not found.");
-  //             return;
-  //         }
+//       // GET BY ID
+//       const firstExpense = await repository.getById(expenses[0].id);
 
-  //         const updateExpense = {
-  //             ...expense,
-  //             expenseName: "Updated Coffee",
-  //             amount: 999,
-  //             isFavorite: true,
-  //         };
+//       console.log("Get By Id:", firstExpense);
 
-  //         await storage.update(updateExpense);
+//       // UPDATE
+//       if (firstExpense) {
 
-  //         console.log(await storage.getById("2"));
+//           await repository.update({
+//               ...firstExpense,
+//               amount: 50000,
+//           });
 
-  //         console.log("========== DELETE ==========");
+//           console.log("Update success.");
 
-  //         await storage.delete("1");
+//       }
 
-  //         console.log(await storage.getAll());
+//       console.log(
+//           "After Update:",
+//           await repository.getAll()
+//       );
 
-  //     }
+//       // DELETE
+//       if (firstExpense) {
 
-  //     test();
+//           await repository.delete(firstExpense.id);
 
-  // }, []);
+//           console.log("Delete success.");
 
-// TEST SQLite
-  // useEffect(() => {
+//       }
 
-  //   async function test() {
+//       console.log(
+//           "After Delete:",
+//           await repository.getAll()
+//       );
 
-  //       database.runSync(`
-  //           DELETE FROM expenses;
-  //       `);
+//       console.log("=========== END TEST ===========");
 
-  //       console.log("========== CREATE ==========");
+//   }
 
-  //       await storage.create(mockExpenses[0]);
-  //       await storage.create(mockExpenses[1]);
-  //       await storage.create(mockExpenses[2]);
+  useEffect(() => {
 
-  //       console.log(await storage.getAll());
+        runTest();
 
-  //       console.log("========== GET BY ID ==========");
-
-  //       console.log(await storage.getById("2"));
-
-  //       console.log("========== UPDATE ==========");
-
-  //       const expense = await storage.getById("2");
-
-  //       if (!expense) return;
-
-  //       const updateExpense = {
-  //           ...expense,
-  //           expenseName: "Updated Coffee",
-  //           amount: 999,
-  //           isFavorite: true,
-  //       };
-
-  //       await storage.update(updateExpense);
-
-  //       console.log(await storage.getById("2"));
-
-  //       console.log("========== DELETE ==========");
-
-  //       await storage.delete("1");
-
-  //       console.log(await storage.getAll());
-
-  //   }
-
-  //   test();
-
-  // }, []);
+    }, []);
 
   return (
     <View style={styles.container}>

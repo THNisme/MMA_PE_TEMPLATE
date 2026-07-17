@@ -14,7 +14,7 @@ export enum StorageType {
 
 // Tạo biến cấu hình. 
 // Khi đi thi, bạn chỉ cần sửa đúng dòng này.
-const DEFAULT_STORAGE: StorageType = StorageType.ASYNC_STORAGE; // hoặc StorageType.ASYNC_STORAGE;
+const DEFAULT_STORAGE: StorageType = StorageType.SQLITE; // hoặc StorageType.ASYNC_STORAGE;
 
 export function createStorage(): IBaseStorage<Expense> {
 
